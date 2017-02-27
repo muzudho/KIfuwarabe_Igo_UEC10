@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{c61c30dd-ac28-43a2-99f4-06542e29f843}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{d03c5313-3a69-4956-b9e3-ebbf47151eb3}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{f901694e-0cbc-4b3d-a77a-cbcacce728dd}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Source Files\n090_core____">
+      <UniqueIdentifier>{9302314b-8eaf-471d-a410-5de68ac685c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\n190_board___">
+      <UniqueIdentifier>{d78848d7-4a16-41ac-b9c4-c0e849706e32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\n400_robotArm">
+      <UniqueIdentifier>{3bdc7540-99e4-429a-812c-1215e8074e05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\n700_think___">
+      <UniqueIdentifier>{c5eed8d6-a249-4cdc-9802-7d7dc9622c85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\n700_think___\nn400_tactics_">
+      <UniqueIdentifier>{a9925e9d-45b2-4b79-8268-a09294b5d5e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\n700_think___\nn400_tactics_\nnn100_noHit___">
+      <UniqueIdentifier>{fb1afc1b-4825-4c01-b413-a8a60f3243da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\n700_think___\nn400_tactics_\nnn200_hit_____">
+      <UniqueIdentifier>{423e2e04-0829-4766-bf4b-4fa858d77aff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\n700_think___\nn800_best____">
+      <UniqueIdentifier>{b0368d8a-fb74-41f0-85f3-314a1db7f7c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\n800_scene___">
+      <UniqueIdentifier>{d45acccd-9025-41da-b7cf-5e2a609b7eb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\n930_view____">
+      <UniqueIdentifier>{82922af6-3515-4f5c-aaa2-cd26b1d37ca6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\n950_main____">
+      <UniqueIdentifier>{5c96fd36-979e-4520-a01c-a868dddef518}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\n090_core____">
+      <UniqueIdentifier>{2b7310a0-ad0c-4a0e-8ae5-f98d0c8d3e8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\n190_board___">
+      <UniqueIdentifier>{fb7ca454-410d-41e4-b6a7-e842581dc61f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\n400_robotArm">
+      <UniqueIdentifier>{9b928cec-1cb9-4711-9511-4b526ce4cbf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\n700_think___">
+      <UniqueIdentifier>{aece32ce-9991-4581-a4ba-92cafb0a3fde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\n700_think___\nn400_tactics_">
+      <UniqueIdentifier>{a492bce8-fc54-4e16-a6bd-37a72b20a541}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\n700_think___\nn400_tactics_\nnn100_noHit___">
+      <UniqueIdentifier>{d2bb8438-53b9-451b-80b8-1b0856da22ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\n700_think___\nn400_tactics_\nnn200_hit_____">
+      <UniqueIdentifier>{7548d7a7-bdfe-44f3-a199-edfdedac6d30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\n700_think___\nn800_best____">
+      <UniqueIdentifier>{db1d13c8-c267-4dd0-b7d6-2f54a1ad2b50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\n750_explain_">
+      <UniqueIdentifier>{8a5e083e-e802-4f21-830d-331ff2e4ef23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\n800_scene___">
+      <UniqueIdentifier>{384c6578-9a7b-4a3d-90c4-f123d00a10ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\n930_print___">
+      <UniqueIdentifier>{545e43ae-878b-4e1b-848a-b8abb3cb8223}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\n950_main____">
+      <UniqueIdentifier>{e7b7deb2-bfcd-4bc3-9c6b-dc8f40645567}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\n090_core____\n090_100_core.cpp">
+      <Filter>Source Files\n090_core____</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n190_board___\n190_050_abstractBoard.cpp">
+      <Filter>Source Files\n190_board___</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n190_board___\n190_100_board.cpp">
+      <Filter>Source Files\n190_board___</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n190_board___\n190_150_liberty.cpp">
+      <Filter>Source Files\n190_board___</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n190_board___\n190_200_libertyOfNodes.cpp">
+      <Filter>Source Files\n190_board___</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n190_board___\n190_250_markingBoard.cpp">
+      <Filter>Source Files\n190_board___</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n400_robotArm\n400_100_move.cpp">
+      <Filter>Source Files\n400_robotArm</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n700_think___\nn400_tactics_\nnn100_noHit___\n700_400_100_000_noHit.cpp">
+      <Filter>Source Files\n700_think___\nn400_tactics_\nnn100_noHit___</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n700_think___\nn400_tactics_\nnn100_noHit___\n700_400_100_050_noHitSuicide.cpp">
+      <Filter>Source Files\n700_think___\nn400_tactics_\nnn100_noHit___</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n700_think___\nn400_tactics_\nnn100_noHit___\n700_400_100_100_noHitOwnEye.cpp">
+      <Filter>Source Files\n700_think___\nn400_tactics_\nnn100_noHit___</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n700_think___\nn400_tactics_\nnn100_noHit___\n700_400_100_110_noHitMouth.cpp">
+      <Filter>Source Files\n700_think___\nn400_tactics_\nnn100_noHit___</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n700_think___\nn400_tactics_\nnn100_noHit___\n700_400_100_120_noHitHasinohoBocchi.cpp">
+      <Filter>Source Files\n700_think___\nn400_tactics_\nnn100_noHit___</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n700_think___\nn400_tactics_\nnn200_hit_____\n700_400_200_000_hit.cpp">
+      <Filter>Source Files\n700_think___\nn400_tactics_\nnn200_hit_____</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n700_think___\nn400_tactics_\nnn200_hit_____\n700_400_200_050_hitRandom.cpp">
+      <Filter>Source Files\n700_think___\nn400_tactics_\nnn200_hit_____</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n700_think___\nn400_tactics_\nnn200_hit_____\n700_400_200_100_hitTuke.cpp">
+      <Filter>Source Files\n700_think___\nn400_tactics_\nnn200_hit_____</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n700_think___\nn400_tactics_\nnn200_hit_____\n700_400_200_150_hitAte.cpp">
+      <Filter>Source Files\n700_think___\nn400_tactics_\nnn200_hit_____</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n700_think___\nn400_tactics_\nnn200_hit_____\n700_400_200_200_hitNobiSaver.cpp">
+      <Filter>Source Files\n700_think___\nn400_tactics_\nnn200_hit_____</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n700_think___\nn400_tactics_\nnn200_hit_____\n700_400_200_250_hitGnugo12Random.cpp">
+      <Filter>Source Files\n700_think___\nn400_tactics_\nnn200_hit_____</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n700_think___\nn800_best____\n700_800_100_evaluation.cpp">
+      <Filter>Source Files\n700_think___\nn800_best____</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n700_think___\nn800_best____\n700_800_200_think.cpp">
+      <Filter>Source Files\n700_think___\nn800_best____</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n800_scene___\n800_500_endgame.cpp">
+      <Filter>Source Files\n800_scene___</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n930_view____\n930_500_boardView.cpp">
+      <Filter>Source Files\n930_view____</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n930_view____\n930_520_libertyOfNodesView.cpp">
+      <Filter>Source Files\n930_view____</Filter>
+    </ClCompile>
+    <ClCompile Include="source\n950_main____\n950_500_cgfThink.cpp">
+      <Filter>Source Files\n950_main____</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="header\n090_core____\n090_100_core.h">
+      <Filter>Header Files\n090_core____</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n190_board___\n190_050_abstractBoard.h">
+      <Filter>Header Files\n190_board___</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n190_board___\n190_100_board.h">
+      <Filter>Header Files\n190_board___</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n190_board___\n190_150_liberty.h">
+      <Filter>Header Files\n190_board___</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n190_board___\n190_200_libertyOfNodes.h">
+      <Filter>Header Files\n190_board___</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n190_board___\n190_250_markingBoard.h">
+      <Filter>Header Files\n190_board___</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n400_robotArm\n400_100_move.h">
+      <Filter>Header Files\n400_robotArm</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n700_think___\nn400_tactics_\nnn100_noHit___\n700_400_100_000_noHit.h">
+      <Filter>Header Files\n700_think___\nn400_tactics_\nnn100_noHit___</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n700_think___\nn400_tactics_\nnn100_noHit___\n700_400_100_050_noHitSuicide.h">
+      <Filter>Header Files\n700_think___\nn400_tactics_\nnn100_noHit___</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n700_think___\nn400_tactics_\nnn100_noHit___\n700_400_100_100_noHitOwnEye.h">
+      <Filter>Header Files\n700_think___\nn400_tactics_\nnn100_noHit___</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n700_think___\nn400_tactics_\nnn100_noHit___\n700_400_100_110_noHitMouth.h">
+      <Filter>Header Files\n700_think___\nn400_tactics_\nnn100_noHit___</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n700_think___\nn400_tactics_\nnn100_noHit___\n700_400_100_120_noHitHasinohoBocchi.h">
+      <Filter>Header Files\n700_think___\nn400_tactics_\nnn100_noHit___</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n700_think___\nn400_tactics_\nnn200_hit_____\n700_400_200_000_hit.h">
+      <Filter>Header Files\n700_think___\nn400_tactics_\nnn200_hit_____</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n700_think___\nn400_tactics_\nnn200_hit_____\n700_400_200_050_hitRandom.h">
+      <Filter>Header Files\n700_think___\nn400_tactics_\nnn200_hit_____</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n700_think___\nn400_tactics_\nnn200_hit_____\n700_400_200_100_hitTuke.h">
+      <Filter>Header Files\n700_think___\nn400_tactics_\nnn200_hit_____</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n700_think___\nn400_tactics_\nnn200_hit_____\n700_400_200_150_hitAte.h">
+      <Filter>Header Files\n700_think___\nn400_tactics_\nnn200_hit_____</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n700_think___\nn400_tactics_\nnn200_hit_____\n700_400_200_200_hitNobiSaver.h">
+      <Filter>Header Files\n700_think___\nn400_tactics_\nnn200_hit_____</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n700_think___\nn400_tactics_\nnn200_hit_____\n700_400_200_250_hitGnugo12Random.h">
+      <Filter>Header Files\n700_think___\nn400_tactics_\nnn200_hit_____</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n700_think___\nn800_best____\n700_800_100_evaluation.h">
+      <Filter>Header Files\n700_think___\nn800_best____</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n700_think___\nn800_best____\n700_800_200_think.h">
+      <Filter>Header Files\n700_think___\nn800_best____</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n750_explain_\n750_100_figureType.h">
+      <Filter>Header Files\n750_explain_</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n800_scene___\n800_500_endgame.h">
+      <Filter>Header Files\n800_scene___</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n930_print___\n930_500_boardView.h">
+      <Filter>Header Files\n930_print___</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n930_print___\n930_520_libertyOfNodesView.h">
+      <Filter>Header Files\n930_print___</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n950_main____\n950_100_cppBoard.h">
+      <Filter>Header Files\n950_main____</Filter>
+    </ClInclude>
+    <ClInclude Include="header\n950_main____\n950_500_cgfThink.h">
+      <Filter>Header Files\n950_main____</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
