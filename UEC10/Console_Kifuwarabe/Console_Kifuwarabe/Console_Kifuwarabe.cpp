@@ -4,7 +4,19 @@
 #include "stdafx.h"
 #include <iostream>
 #include "UtilFile.h"
-#include "FileListener.h"
+#include "UtilTimer.h"
+
+/**
+ * 別スレッドで実行される処理が ( ) 演算子に書かれたクラス。
+ */
+class Worker : public DefaultWorker
+{
+public:
+	void operator()()
+	{
+		std::cout << "別スレッドで実行中だぜ☆（＾▽＾）ｖ" << std::endl;
+	}
+};
 
 int main()
 {
@@ -16,8 +28,14 @@ int main()
 	std::cout << contents << std::endl;
 
 	// スレッドテスト
-	FileListener fileListener;
-	fileListener.StartLoop();
+	UtilTimer timer;
+	Worker worker;
+	timer.Start(worker,1000);
+	// 10秒経ったら　スレッドを止めよう☆（＾～＾）
+	UtilTimer::Sleep_Milliseconds(5000L);
+	std::cout << "5秒経ったけど、動いてんの☆（＾～＾）？" << std::endl;
+	UtilTimer::Sleep_Milliseconds(5000L);
+	timer.Break_Force();
 
 	// 横軸はアルファベットにする☆（１桁で済む） Iを飛ばすのは　少なくともわたしはグニュー碁1.2(1995年)では見かけた昔からある習慣☆ 縦棒と区別するぜ☆（＾▽＾）
 	std::cout	<< "  |ABCDEFGHJKLMNOPQRST|" << std::endl

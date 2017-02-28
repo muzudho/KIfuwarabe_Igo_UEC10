@@ -15,7 +15,7 @@ UtilFile::~UtilFile()
 void UtilFile::Write(std::string filename, std::string contents)
 {
 	std::ofstream writing_file;
-	writing_file.open(filename, std::ios::out);
+	writing_file.open(filename);
 
 	writing_file << contents;
 }
@@ -27,7 +27,7 @@ std::string UtilFile::Read(std::string filename)
 	std::string contents;
 
 	std::ifstream file;
-	file.open(filename, std::ios::in);
+	file.open(filename);
 
 	std::string line;
 	while (!file.eof())

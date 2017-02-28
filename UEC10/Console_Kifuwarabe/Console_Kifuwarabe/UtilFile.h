@@ -9,6 +9,7 @@
  * 参照 : 「[C++] ファイル入出力の覚書」 (Qiita) http://qiita.com/lazynick/items/8aede589bb9ca0c8b64f
  * 参照 : 「文字列の結合方法による速度差」 (Qiita) http://qiita.com/ampersand/items/0322e0820badf2c020be
  * 参照 : 空文字列で初期化するには : 「文字列の初期化」 (手を動かしてさくさく理解する C++ 文字列クラス std::string 入門) http://vivi.dyndns.org/tech/cpp/string.html
+ * 参照 : 「lambda式を引数として受け取る関数の自作はできますか？」 (Teratail) https://teratail.com/questions/37610
  */
 class UtilFile
 {

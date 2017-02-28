@@ -27,7 +27,7 @@
     <ClInclude Include="UtilFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FileListener.h">
+    <ClInclude Include="UtilTimer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,7 +41,7 @@
     <ClCompile Include="UtilFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FileListener.cpp">
+    <ClCompile Include="UtilTimer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
