@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "UtilTimer.h"
-//#include <chrono>
 
 UtilTimer::UtilTimer()
 {
@@ -11,16 +10,12 @@ UtilTimer::~UtilTimer()
 {
 }
 
-//template<typename Rep, typename Period, std::enable_if_t<!std::is_same<std::chrono::duration<Rep, Period>, std::chrono::milliseconds >::value, std::nullptr_t> = nullptr>
-//void UtilTimer::Start(DefaultWorker* pWorker, std::chrono::duration<Rep, Period> time)
 void UtilTimer::Start(DefaultWorker* pWorker, long milliseconds)
 {
 	m_alive = true;
 	m_pWorker = pWorker;
-	//m_thread1 = std::thread([=, &time] {
 	m_thread1 = std::thread([=,&milliseconds] {
 		// 処理と処理の間を n 秒以上空ける。（毎回 n 秒間隔保障なので、n 秒毎に定期的にスタートされるという意味ではない）
-		//const std::chrono::milliseconds interval(std::chrono::duration_cast<ch::milliseconds>(time));
 		const std::chrono::milliseconds interval(milliseconds);
 		while (this->m_alive) {
 			

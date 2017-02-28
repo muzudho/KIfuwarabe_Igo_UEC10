@@ -13,14 +13,11 @@ void UtilFile::Write(std::string filename, std::string contents)
 
 bool UtilFile::Read(std::string filename, std::string& contents)
 {
-	// ファイルの内容全文
-	//std::string contents;
-
 	std::ifstream file;
 	file.open(filename);
 	if (file.fail())
 	{
-		std::cout << "ファイル[" << filename << "]が開けなかった☆（＾～＾）！オワタ～☆（＞＿＜）" << std::endl;
+		//std::cout << "ファイル[" << filename << "]が開けなかった☆（＾～＾）！オワタ～☆（＞＿＜）" << std::endl;
 		return false;
 	}
 

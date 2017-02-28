@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include <fstream>
-//#include <atomic>
 #include <thread>
 #include <chrono>
 
@@ -17,21 +16,6 @@ public:
 	}
 
 	virtual void OnStep() = 0;
-	//virtual void OnStep()
-	//{
-	//	std::cout << "このOnStep()は実行してはいけないぜ☆（＞＿＜）" << std::endl;
-	//	// なんにもしないぜ☆（＾▽＾）
-	//}
-
-	///**
-	// * ファンクターというのは、クラス名の後ろに() 演算子を付けたものです。
-	// * ファンクターの引数は 無しにしておいてください。
-	// */
-	//virtual void operator()()
-	//{
-	//	std::cout << "スーパークラスのファンクターなんか呼んでんの☆（＾～＾）？" << std::endl;
-	//	// なんにもしないぜ☆（＾▽＾）
-	//}
 };
 
 /**
@@ -53,8 +37,6 @@ public:
 	/**
 	 * スレッドを開始します。
 	 */
-	//template<typename Rep, typename Period, std::enable_if_t<!std::is_same<std::chrono::duration<Rep, Period>, std::chrono::milliseconds >::value, std::nullptr_t> = nullptr>
-	//void Start(DefaultWorker* pWorker, std::chrono::duration<Rep, Period> time);
 	void Start(DefaultWorker* pWorker, long milliseconds);
 	/**
 	 * スタートさせたスレッドが動いている間は、処理を先に進ませません。

@@ -6,10 +6,7 @@
 #include "UtilFile.h"
 #include "UtilTimer.h"
 #include "UtilString.h"
-
 #include <windows.h>	// コンソールへの出力等
-//#include <tchar.h>	// Unicode対応の _T() 関数を使用するために。
-//#include "Shlwapi.h"	// Unicode対応の _T() 関数を使用するために。
 using namespace std::literals; // 時間の表記を拡張するためもの。
 
 namespace Kifuwarabe
@@ -33,14 +30,6 @@ public:
 
 	void OnStep()
 	{
-		//LPCWSTR filename = _T("_log_test.txt");// _T(Kifuwarabe::filename_move);
-		//if (PathFileExists(filename)) {
-		//	// ファイルは存在する
-		//}
-		//else {
-		//	// ファイルは存在しない
-		//}
-
 		std::string contents;
 		if (UtilFile::Read(Kifuwarabe::filename_move, contents)) {
 			contents = UtilString::Trim(contents);
@@ -50,14 +39,7 @@ public:
 		else {
 			std::cout << "ファイル[" << Kifuwarabe::filename_move << "]開けね☆（＾～＾）" << std::endl;
 		}
-
-		// TODO: ここにやりたい処理を書く
 	}
-
-	//void operator()()
-	//{
-	//	std::cout << "ファンクターを試すぜ☆（＾▽＾）ｖ" << std::endl;
-	//}
 };
 
 int main()
@@ -75,10 +57,7 @@ int main()
 	// スレッドテスト
 	UtilTimer timer;
 	ReaderWorker* pWorker1 = new ReaderWorker();
-	//// ファンクターを実行してみる。
-	//(*pWorker)();
 	// スレッドスタート。
-	//timer.Start(pWorker1,1s);
 	timer.Start(pWorker1, 1000);
 	// 10秒経ったら　スレッドを止めよう☆（＾～＾）
 	UtilTimer::Sleep_Milliseconds(5000L);
@@ -113,7 +92,6 @@ int main()
 				<< "--+-------------------+" << std::endl
 				<< "何かボタンを押せだぜ☆（＾▽＾）" << std::endl;
 	getchar();
-	//system("pause");
 
     return 0;
 }
