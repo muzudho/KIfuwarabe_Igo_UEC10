@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "UtilTimer.h"
+//#include <chrono>
 
 UtilTimer::UtilTimer()
 {
@@ -10,24 +11,23 @@ UtilTimer::~UtilTimer()
 {
 }
 
-/**
- * ファンクターというのは、クラス名の後ろに ( ) 演算子を付けたものです。
- * ファンクターの引数は 無しにしておいてください。
- */
-void UtilTimer::Start(DefaultWorker your_functor, long milliseconds)
+//template<typename Rep, typename Period, std::enable_if_t<!std::is_same<std::chrono::duration<Rep, Period>, std::chrono::milliseconds >::value, std::nullptr_t> = nullptr>
+//void UtilTimer::Start(DefaultWorker* pWorker, std::chrono::duration<Rep, Period> time)
+void UtilTimer::Start(DefaultWorker* pWorker, long milliseconds)
 {
 	m_alive = true;
-	m_thread1 = std::thread([=,&your_functor,&milliseconds] {
-		// 処理と処理の間を1秒以上空ける。（毎回１秒間隔保障なので、１秒毎に定期的にスタートされるという意味ではない）
+	m_pWorker = pWorker;
+	//m_thread1 = std::thread([=, &time] {
+	m_thread1 = std::thread([=,&milliseconds] {
+		// 処理と処理の間を n 秒以上空ける。（毎回 n 秒間隔保障なので、n 秒毎に定期的にスタートされるという意味ではない）
+		//const std::chrono::milliseconds interval(std::chrono::duration_cast<ch::milliseconds>(time));
 		const std::chrono::milliseconds interval(milliseconds);
-		//for (int i=0;i<10;i++) {
 		while (this->m_alive) {
 			
 			auto start = std::chrono::system_clock::now();
 
-			// ここに処理を書く
-			//your_functor();
-			//std::cout << "i=[" << i << "]" << std::endl;
+			// 処理が書かれたメソッドを呼び出す
+			this->m_pWorker->OnStep();
 
 			auto end = std::chrono::system_clock::now();
 			auto elapsed = end - start;
@@ -45,13 +45,17 @@ void UtilTimer::Start(DefaultWorker your_functor, long milliseconds)
 
 void UtilTimer::Block()
 {
-	m_thread1.join(); // スタートさせたスレッドが終了するまで、これ以上進まない。
-					  // スレッドを止めるか、勝手に止まるかすると　ここから以下に進む。
+	// スタートさせたスレッドが終了するまで、これ以上進まない。
+	m_thread1.join();
+	// スレッドを止めるか、勝手に止まるかすると　ここから以下に進む。					  
 }
 
 void UtilTimer::Break_Force()
 {
+	// スレッドを止める
 	m_thread1.detach();
+
+	// スレッドの中のループから抜けさせる
 	this->m_alive = false;
 }
 

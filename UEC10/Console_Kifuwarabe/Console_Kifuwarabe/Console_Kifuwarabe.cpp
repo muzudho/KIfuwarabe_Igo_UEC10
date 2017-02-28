@@ -5,17 +5,59 @@
 #include <iostream>
 #include "UtilFile.h"
 #include "UtilTimer.h"
+#include "UtilString.h"
+
+#include <windows.h>	// コンソールへの出力等
+//#include <tchar.h>	// Unicode対応の _T() 関数を使用するために。
+//#include "Shlwapi.h"	// Unicode対応の _T() 関数を使用するために。
+using namespace std::literals; // 時間の表記を拡張するためもの。
+
+namespace Kifuwarabe
+{
+	const std::string filename_move = "_log_move.txt";
+}
 
 /**
- * 別スレッドで実行される処理が ( ) 演算子に書かれたクラス。
+ * 指定時間間隔で実行したい処理を書くクラス
+ *
+ * 参照 : 「ファイルやディレクトリの存在確認を行う方法」 (教えて！goo) https://oshiete.goo.ne.jp/qa/3399080.html
+ * 参照 : 「FAQ: Cannot convert from 'const char [..]' to 'LPCTSTR'」 (Visual Studio) https://social.msdn.microsoft.com/Forums/vstudio/en-US/c1b08c0a-a803-41c3-ac8c-84eba3be1ddb/faq-cannot-convert-from-const-char-to-lpctstr?forum=vclanguage
  */
-class Worker : public DefaultWorker
+class ReaderWorker : public DefaultWorker
 {
 public:
-	void operator()()
+	ReaderWorker() : DefaultWorker()
 	{
-		std::cout << "別スレッドで実行中だぜ☆（＾▽＾）ｖ" << std::endl;
+		std::cout << "サブクラスのコンストラクター、呼んでるのかだぜ☆（＾～＾）？" << std::endl;
 	}
+
+	void OnStep()
+	{
+		//LPCWSTR filename = _T("_log_test.txt");// _T(Kifuwarabe::filename_move);
+		//if (PathFileExists(filename)) {
+		//	// ファイルは存在する
+		//}
+		//else {
+		//	// ファイルは存在しない
+		//}
+
+		std::string contents;
+		if (UtilFile::Read(Kifuwarabe::filename_move, contents)) {
+			contents = UtilString::Trim(contents);
+			std::cout << "指し手は[" << contents << "]だぜ☆（＾▽＾）ｖ" << std::endl;
+
+		}
+		else {
+			std::cout << "ファイル[" << Kifuwarabe::filename_move << "]開けね☆（＾～＾）" << std::endl;
+		}
+
+		// TODO: ここにやりたい処理を書く
+	}
+
+	//void operator()()
+	//{
+	//	std::cout << "ファンクターを試すぜ☆（＾▽＾）ｖ" << std::endl;
+	//}
 };
 
 int main()
@@ -23,19 +65,28 @@ int main()
 	std::cout << "Hello, World." << std::endl;
 
 	// ファイル読書きテスト
-	UtilFile::Write("test.txt", "ほっほ☆（＾▽＾）\nどうだぜ☆（＾～＾）？");
-	std::string contents = UtilFile::Read("test.txt");
-	std::cout << contents << std::endl;
+	std::string filename = "_log_test.txt";
+	UtilFile::Write(filename, "ほっほ☆（＾▽＾）\nどうだぜ☆（＾～＾）？");
+	std::string contents;
+	if (UtilFile::Read(filename, contents)) {
+		std::cout << contents << std::endl;
+	}
 
 	// スレッドテスト
 	UtilTimer timer;
-	Worker worker;
-	timer.Start(worker,1000);
+	ReaderWorker* pWorker1 = new ReaderWorker();
+	//// ファンクターを実行してみる。
+	//(*pWorker)();
+	// スレッドスタート。
+	//timer.Start(pWorker1,1s);
+	timer.Start(pWorker1, 1000);
 	// 10秒経ったら　スレッドを止めよう☆（＾～＾）
 	UtilTimer::Sleep_Milliseconds(5000L);
 	std::cout << "5秒経ったけど、動いてんの☆（＾～＾）？" << std::endl;
 	UtilTimer::Sleep_Milliseconds(5000L);
 	timer.Break_Force();
+	delete pWorker1;
+
 
 	// 横軸はアルファベットにする☆（１桁で済む） Iを飛ばすのは　少なくともわたしはグニュー碁1.2(1995年)では見かけた昔からある習慣☆ 縦棒と区別するぜ☆（＾▽＾）
 	std::cout	<< "  |ABCDEFGHJKLMNOPQRST|" << std::endl

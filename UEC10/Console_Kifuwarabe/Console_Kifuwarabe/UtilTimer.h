@@ -1,27 +1,48 @@
 #pragma once
 #include <iostream>
 #include <fstream>
-#include <atomic>
+//#include <atomic>
 #include <thread>
 #include <chrono>
 
 /**
-* 別スレッドで実行される処理が ( ) 演算子に書かれたクラス。
-*/
+ * 指定時間間隔で実行したい処理を書くクラス
+ */
 class DefaultWorker
 {
 public:
-	virtual void operator()()
+	DefaultWorker()
 	{
-		// なんにもしないぜ☆（＾▽＾）
+		std::cout << "スーパー・クラスのコンストラクターはこれだけど……☆（＾～＾）" << std::endl;
 	}
+
+	virtual void OnStep() = 0;
+	//virtual void OnStep()
+	//{
+	//	std::cout << "このOnStep()は実行してはいけないぜ☆（＞＿＜）" << std::endl;
+	//	// なんにもしないぜ☆（＾▽＾）
+	//}
+
+	///**
+	// * ファンクターというのは、クラス名の後ろに() 演算子を付けたものです。
+	// * ファンクターの引数は 無しにしておいてください。
+	// */
+	//virtual void operator()()
+	//{
+	//	std::cout << "スーパークラスのファンクターなんか呼んでんの☆（＾～＾）？" << std::endl;
+	//	// なんにもしないぜ☆（＾▽＾）
+	//}
 };
 
 /**
  * スレッドを立て、テキストファイルの内容が更新されていないか確認します。
+ *
+ * 自著 : 「[C++] タイマー、それもコンソール・アプリケーションで別スレッド立てて (C#プログラマ向け)」 (Qiita) http://qiita.com/muzudho1/items/ff5e38e907b3e8bc51ef
  * 参照 : 「c++で一定間隔で関数を実行させたい」 (teratail) https://teratail.com/questions/27449
  * 参照 : 「std::thread::thread」 (C++言語の入門サイトです) http://kaworu.jpn.org/cpp/std::thread::thread
  * 参照 : 「std::this thread::sleep for」 (C++言語の入門サイトです) http://kaworu.jpn.org/cpp/std::this_thread::sleep_for
+ * 参照 : 「C++1z ラムダ式での*thisのコピーキャプチャ」 (Faith and Brave - C++で遊ぼう) http://faithandbrave.hateblo.jp/entry/2016/04/27/191209
+ * 参照 : 「C++ で継承したときにサブクラスのメンバ関数を呼ぶためには virtual をつけて仮想関数にする」 (sotarokのお勉強) http://d.hatena.ne.jp/strkpy/20100401/1270133069
  */
 class UtilTimer
 {
@@ -32,7 +53,9 @@ public:
 	/**
 	 * スレッドを開始します。
 	 */
-	void Start(DefaultWorker your_functor, long milliseconds);
+	//template<typename Rep, typename Period, std::enable_if_t<!std::is_same<std::chrono::duration<Rep, Period>, std::chrono::milliseconds >::value, std::nullptr_t> = nullptr>
+	//void Start(DefaultWorker* pWorker, std::chrono::duration<Rep, Period> time);
+	void Start(DefaultWorker* pWorker, long milliseconds);
 	/**
 	 * スタートさせたスレッドが動いている間は、処理を先に進ませません。
 	 */
@@ -43,11 +66,20 @@ public:
 	void Break_Force();
 
 	/**
-	 * この関数を呼び出したスレッドを、指定ミリ秒停止させます。
+	 * （このクラスの持つスレッドではなく）この関数を呼び出したスレッドを、指定ミリ秒停止させます。
+	 * ネームスペースを切るのがめんどくさいので　このクラスに置いている。
 	 */
 	static void Sleep_Milliseconds(long milliseconds);
 
 protected:
 	std::thread m_thread1;
+	/**
+	 * スレッドを停止しても、処理のループは動き続けているようだったので、
+	 * このフラグを偽にすることで、スレッドの中のループから抜けさせます
+	 */
 	bool m_alive;
+	/**
+	 * 別スレッドで実行したい処理を書いたメソッドを持っています。
+	 */
+	DefaultWorker* m_pWorker;
 };

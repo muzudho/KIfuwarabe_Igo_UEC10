@@ -2,16 +2,6 @@
 #include "UtilFile.h"
 
 
-UtilFile::UtilFile()
-{
-}
-
-
-UtilFile::~UtilFile()
-{
-}
-
-
 void UtilFile::Write(std::string filename, std::string contents)
 {
 	std::ofstream writing_file;
@@ -21,13 +11,18 @@ void UtilFile::Write(std::string filename, std::string contents)
 }
 
 
-std::string UtilFile::Read(std::string filename)
+bool UtilFile::Read(std::string filename, std::string& contents)
 {
 	// ファイルの内容全文
-	std::string contents;
+	//std::string contents;
 
 	std::ifstream file;
 	file.open(filename);
+	if (file.fail())
+	{
+		std::cout << "ファイル[" << filename << "]が開けなかった☆（＾～＾）！オワタ～☆（＞＿＜）" << std::endl;
+		return false;
+	}
 
 	std::string line;
 	while (!file.eof())
@@ -40,5 +35,5 @@ std::string UtilFile::Read(std::string filename)
 		if (file.eof()) { contents += "\n"; }
 	}
 
-	return contents;
+	return true;
 }
