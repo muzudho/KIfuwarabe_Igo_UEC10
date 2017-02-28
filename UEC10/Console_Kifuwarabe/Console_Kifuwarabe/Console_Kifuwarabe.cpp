@@ -3,13 +3,23 @@
 
 #include "stdafx.h"
 #include <iostream>
-
+#include "UtilFile.h"
+#include "FileListener.h"
 
 int main()
 {
 	std::cout << "Hello, World." << std::endl;
-	
-	// 横軸はアルファベットにする☆（１桁で済む） Iを飛ばすのはグニュー碁ぐらい昔からある習慣☆ 縦棒と区別するぜ☆（＾▽＾）
+
+	// ファイル読書きテスト
+	UtilFile::Write("test.txt", "ほっほ☆（＾▽＾）\nどうだぜ☆（＾～＾）？");
+	std::string contents = UtilFile::Read("test.txt");
+	std::cout << contents << std::endl;
+
+	// スレッドテスト
+	FileListener fileListener;
+	fileListener.StartLoop();
+
+	// 横軸はアルファベットにする☆（１桁で済む） Iを飛ばすのは　少なくともわたしはグニュー碁1.2(1995年)では見かけた昔からある習慣☆ 縦棒と区別するぜ☆（＾▽＾）
 	std::cout	<< "  |ABCDEFGHJKLMNOPQRST|" << std::endl
 				<< "--+-------------------+" << std::endl
 				<< " 1|                   |" << std::endl
@@ -38,4 +48,3 @@ int main()
 
     return 0;
 }
-
